@@ -1,0 +1,17 @@
+{
+  "name": "DRRrrRrvrr",
+  "homepage": "https://github.com/frederickjansen/DRRrrRrvrr",
+  "authors": [
+    "Frederick Jansen <frederick.jansen@gmail.com>"
+  ],
+  "description": "Assignment 3 of CSCI E-32",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
