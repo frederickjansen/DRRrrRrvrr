@@ -11,6 +11,7 @@
 angular
   .module('drr', [
     'drr.controllers',
+    'drr.constants',
     'ui.router',
     'ui.bootstrap'
   ])
@@ -31,3 +32,4 @@ angular
 
 // Declare modules
 angular.module('drr.controllers', []);
+angular.module('drr.constants', []);
