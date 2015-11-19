@@ -21,10 +21,10 @@ angular
       $stateProvider
 
         // Setup an abstract state for the tabs directive
-        .state('main', {
+        .state('index', {
           url: '/',
-          templateUrl: 'views/main.html',
-          controller: 'MainCtrl as main'
+          templateUrl: 'views/index.html',
+          controller: 'IndexCtrl as index'
         });
 
       $urlRouterProvider.otherwise('/');

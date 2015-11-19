@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name drr.controllers:MainCtrl
+ * @name drr.controllers:IndexCtrl
  * @description
- * # MainCtrl
+ * # IndexCtrl
  * Controller of drr
  */
 angular.module('drr.controllers')
-  .controller('MainCtrl', [function () {
+  .controller('IndexCtrl', [function () {
 
   }]);

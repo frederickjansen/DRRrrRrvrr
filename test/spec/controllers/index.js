@@ -5,11 +5,11 @@ describe('Controller: MainCtrl', function () {
   // load the controller's module
   beforeEach(module('drr'));
 
-  var MainCtrl;
+  var IndexCtrl;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller) {
-    MainCtrl = $controller('MainCtrl', {});
+    IndexCtrl = $controller('IndexCtrl', {});
   }));
 
   it('dummy test', function () {
