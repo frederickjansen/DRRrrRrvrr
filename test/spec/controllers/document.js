@@ -1,15 +1,15 @@
 'use strict';
 
-describe('Controller: IndexCtrl', function () {
+describe('Controller: DocumentCtrl', function () {
 
   // load the controller's module
   beforeEach(module('drr'));
 
-  var IndexCtrl;
+  var DocumentCtrl;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller) {
-    IndexCtrl = $controller('IndexCtrl', {});
+    DocumentCtrl = $controller('DocumentCtrl', {});
   }));
 
   it('dummy test', function () {

@@ -25,6 +25,11 @@ angular
           url: '/',
           templateUrl: 'views/index.html',
           controller: 'IndexCtrl as index'
+        })
+        .state('document', {
+          url: 'document',
+          templateUrl: 'views/document.html',
+          controller: 'DocumentCtrl as document'
         });
 
       $urlRouterProvider.otherwise('/');
@@ -32,4 +37,6 @@ angular
 
 // Declare modules
 angular.module('drr.controllers', []);
+angular.module('drr.services', []);
+angular.module('drr.directives', []);
 angular.module('drr.constants', []);
