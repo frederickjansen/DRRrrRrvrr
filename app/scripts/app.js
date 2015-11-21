@@ -12,6 +12,7 @@ angular
   .module('drr', [
     'drr.controllers',
     'drr.constants',
+    'drr.directives',
     'ui.router',
     'ui.bootstrap'
   ])

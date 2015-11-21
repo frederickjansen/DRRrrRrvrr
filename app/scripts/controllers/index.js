@@ -9,5 +9,5 @@
  */
 angular.module('drr.controllers')
   .controller('IndexCtrl', [function () {
-
+    this.label = "Authorize";
   }]);
