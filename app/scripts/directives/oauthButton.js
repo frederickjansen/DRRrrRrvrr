@@ -1,5 +1,5 @@
 angular.module('drr.directives')
-  .directive('drrOathButton', [function () {
+  .directive('drrOathButton', ['GoogleDrive', function (GoogleDrive) {
     return {
       restrict: 'E',
       templateUrl: 'views/oathButton.html',
@@ -9,7 +9,7 @@ angular.module('drr.directives')
       link: function ($scope, $element, $attrs) {
         $element.on('click', function (e) {
           e.preventDefault();
-          alert('click');
+          GoogleDrive.handleAuthClick(e);
         })
       }
     };

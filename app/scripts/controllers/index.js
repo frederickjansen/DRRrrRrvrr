@@ -8,6 +8,12 @@
  * Controller of drr
  */
 angular.module('drr.controllers')
-  .controller('IndexCtrl', [function () {
+  .controller('IndexCtrl', ['$window', 'GoogleDrive', function ($window, GoogleDrive) {
     this.label = "Authorize";
+
+    $window.initGapi = function() {
+      GoogleDrive.checkAuth();
+    }
+
+    console.log('index.js controller')
   }]);

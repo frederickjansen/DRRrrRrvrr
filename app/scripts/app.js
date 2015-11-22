@@ -11,6 +11,7 @@
 angular
   .module('drr', [
     'drr.controllers',
+    'drr.services',
     'drr.constants',
     'drr.directives',
     'ui.router',
