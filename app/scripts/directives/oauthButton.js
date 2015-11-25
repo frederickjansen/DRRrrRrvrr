@@ -9,7 +9,7 @@ angular.module('drr.directives')
       link: function ($scope, $element, $attrs) {
         $element.on('click', function (e) {
           e.preventDefault();
-          GoogleDrive.handleAuthClick(e);
+          $scope.$emit('$googleDrive:oauthClick');
         })
       }
     };
