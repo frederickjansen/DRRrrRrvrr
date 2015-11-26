@@ -12,16 +12,18 @@ angular.module('drr.controllers')
     this.label = "Authorize";
 
     $window.initGapi = function() {
-      checkAuth();
+      checkAuth(true);
     };
 
     $rootScope.$on('$googleDrive:oauthClick', function() {
-      checkAuth();
+      checkAuth(false);
     });
 
     function checkAuth() {
       GoogleDrive.checkAuth().then(function () {
-        console.log('auth done')
+        GoogleDrive.listFiles().then(function (files) {
+          console.log(files);
+        });
       });
     }
     console.log('index.js controller')
