@@ -7,6 +7,8 @@
     <drr-oath-button label="index.label"></drr-oath-button>
   </div>
   <div id="output" class="well col-md-12">
-    <ul></ul>
+    <ul>
+      <li ng-repeat="file in index.files">{{file.title}}</li>
+    </ul>
   </div>
 </div>
