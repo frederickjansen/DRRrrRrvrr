@@ -29,7 +29,7 @@ angular
           controller: 'IndexCtrl as index'
         })
         .state('document', {
-          url: 'document',
+          url: '/document/:id',
           templateUrl: 'views/document.html',
           controller: 'DocumentCtrl as document'
         });

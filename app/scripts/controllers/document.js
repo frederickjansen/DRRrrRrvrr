@@ -8,6 +8,6 @@
  * Controller of drr
  */
 angular.module('drr.controllers')
-  .controller('DocumentCtrl', [function () {
-
+  .controller('DocumentCtrl', ['$stateParams', function ($stateParams) {
+    console.log($stateParams);
   }]);

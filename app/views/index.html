@@ -8,7 +8,9 @@
   </div>
   <div id="output" class="well col-md-12">
     <ul>
-      <li ng-repeat="file in index.files">{{file.title}}</li>
+      <li ng-repeat="file in index.files">
+        <a ui-sref="document({id: '{{file.id}}'})">{{file.title}}</a>
+      </li>
     </ul>
   </div>
 </div>

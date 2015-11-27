@@ -5,6 +5,11 @@ angular.module('drr.services')
     var googleDrive = {};
     console.log('googleDrive service');
 
+    /**
+     * Login using Google OAuth
+     * @param immediate
+     * @returns promise
+     */
     googleDrive.checkAuth = function (immediate) {
       var deferred = $q.defer();
       gapi.auth.authorize(
@@ -21,7 +26,7 @@ angular.module('drr.services')
     /**
      * Load Drive API client library.
      */
-    googleDrive.listFiles = function() {
+    googleDrive.listFiles = function () {
       var deferred = $q.defer();
       gapi.client.load('drive', 'v2', function () {
         var request = gapi.client.drive.files.list({
@@ -34,7 +39,7 @@ angular.module('drr.services')
           if (files && files.length > 0) {
             deferred.resolve(files);
           } else {
-            deferred.resolve(['', 'No files found']);
+            deferred.resolve([{title: 'No files found'}]);
           }
         });
       });
