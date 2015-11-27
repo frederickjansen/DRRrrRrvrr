@@ -8,6 +8,11 @@
  * Controller of drr
  */
 angular.module('drr.controllers')
-  .controller('DocumentCtrl', ['$stateParams', function ($stateParams) {
+  .controller('DocumentCtrl', ['$stateParams', 'GoogleDrive', function ($stateParams, GoogleDrive) {
     console.log($stateParams);
+    if ($stateParams && $stateParams.id) {
+      GoogleDrive.displayFile($stateParams.id).then(function (file) {
+        console.log(file);
+      });
+    }
   }]);

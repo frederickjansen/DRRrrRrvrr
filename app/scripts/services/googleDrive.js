@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('drr.services')
-  .factory('GoogleDrive', ['$q', 'CONFIG', function ($q, CONFIG) {
+  .factory('GoogleDrive', ['$q', '$http', 'CONFIG', function ($q, $http, CONFIG) {
     var googleDrive = {};
     console.log('googleDrive service');
 
@@ -46,11 +46,26 @@ angular.module('drr.services')
 
       return deferred.promise;
     };
-    }
 
-    function handleAuthResult() {
-      return true;
-    }
+    googleDrive.displayFile = function(id) {
+      var deferred = $q.defer();
+      var request = gapi.client.drive.files.get({fileId: id});
+
+      request.execute(function (resp) {
+        var accessToken = gapi.auth.getToken().access_token;
+
+        $http({
+          url: resp.exportLinks["text/plain"],
+          method: "GET",
+          headers: {'Authorization': 'Bearer ' + accessToken}
+        }).then(function (response) {
+          deferred.resolve(response.data.replace(/\n/g, "<br>"));
+        }, function (error) {
+          deferred.reject(error);
+        });
+      });
+      return deferred.promise;
+    };
 
     return googleDrive;
   }]);
