@@ -59,7 +59,7 @@ angular.module('drr.services')
           method: "GET",
           headers: {'Authorization': 'Bearer ' + accessToken}
         }).then(function (response) {
-          deferred.resolve(response.data.replace(/\n/g, "<br>"));
+          deferred.resolve(response.data);
         }, function (error) {
           deferred.reject(error);
         });
