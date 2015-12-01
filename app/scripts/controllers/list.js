@@ -13,6 +13,11 @@ angular.module('drr.controllers')
       this.label = "Authorize";
       var that = this;
 
+      // If gapi is loaded, we're coming from index page
+      if (gapi && gapi.client) {
+        listFiles();
+      }
+
       $rootScope.$on('$googleDrive:oauthClick', function () {
         checkAuth(false).then(listFiles);
       });
