@@ -49,21 +49,24 @@ angular.module('drr.services')
 
     googleDrive.displayFile = function(id) {
       var deferred = $q.defer();
-      var request = gapi.client.drive.files.get({fileId: id});
+      gapi.client.load('drive', 'v2', function () {
+        var request = gapi.client.drive.files.get({fileId: id});
 
-      request.execute(function (resp) {
-        var accessToken = gapi.auth.getToken().access_token;
+        request.execute(function (resp) {
+          var accessToken = gapi.auth.getToken().access_token;
 
-        $http({
-          url: resp.exportLinks["text/plain"],
-          method: "GET",
-          headers: {'Authorization': 'Bearer ' + accessToken}
-        }).then(function (response) {
-          deferred.resolve(response.data);
-        }, function (error) {
-          deferred.reject(error);
+          $http({
+            url: resp.exportLinks["text/plain"],
+            method: "GET",
+            headers: {'Authorization': 'Bearer ' + accessToken}
+          }).then(function (response) {
+            deferred.resolve(response.data);
+          }, function (error) {
+            deferred.reject(error);
+          });
         });
       });
+
       return deferred.promise;
     };
 

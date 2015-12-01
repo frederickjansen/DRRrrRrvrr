@@ -1,15 +1,15 @@
 <h1>Hello Google DRRrrRrvrr!</h1>
 
 <div class="row">
-  <div class="col-md-12" ng-if="!index.files">
+  <div class="col-md-12" ng-if="!list.files">
     <span>Authorize access to Drive API</span>
     <!--Button for the user to click to initiate auth sequence -->
-    <drr-oath-button label="index.label"></drr-oath-button>
+    <drr-oath-button label="list.label"></drr-oath-button>
   </div>
   <div id="output" class="well col-md-12">
     <ul>
-      <li ng-repeat="file in index.files">
-        <a ui-sref="document({id: '{{file.id}}'})">{{file.title}}</a>
+      <li ng-repeat="file in list.files">
+        <a ui-sref="index.document({id: '{{file.id}}'})">{{file.title}}</a>
       </li>
     </ul>
   </div>

@@ -8,38 +8,27 @@
  * Controller of drr
  */
 angular.module('drr.controllers')
-  .controller('IndexCtrl', ['$rootScope', '$window', 'GoogleDrive', function ($rootScope, $window, GoogleDrive) {
-    this.label = "Authorize";
-    var that = this;
-    var running = false;
+  .controller('IndexCtrl', ['$scope', '$window', 'GoogleDrive',
+    function ($scope, $window, GoogleDrive) {
+      var running = false;
 
-    $window.initGapi = function () {
-      running = true;
-      checkAuth(true).then(listFiles);
-    };
+      $window.initGapi = function () {
+        running = true;
+        checkAuth(true).then(gApiLoaded);
+      };
 
-    $rootScope.$on('$googleDrive:oauthClick', function () {
-      running = true;
-      checkAuth(false).then(listFiles);
-    });
+      function gApiLoaded() {
+        $scope.$broadcast('$index:gApiLoaded');
+        running = false;
+      }
 
-    function checkAuth(immediate) {
-      return GoogleDrive.checkAuth(immediate);
-    }
+      function checkAuth(immediate) {
+        return GoogleDrive.checkAuth(immediate);
+      }
 
-    function listFiles() {
-      GoogleDrive.listFiles().then(
-        function (files) {
-          that.files = files;
-          running = false;
-        }, function (error) {
-          console.log('Something went wrong getting files', error);
-        });
-    }
+      if (!running && $window.gapiLoaded) {
+        $window.initGapi();
+      }
 
-    if (!running && $window.gapiLoaded) {
-      $window.initGapi();
-    }
-
-    console.log('index.js controller')
-  }]);
+      console.log('index.js controller')
+    }]);

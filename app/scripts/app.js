@@ -22,13 +22,18 @@ angular
 
       $stateProvider
 
-        // Setup an abstract state for the tabs directive
+        // Setup an abstract state for Google OAuth
         .state('index', {
-          url: '/',
-          templateUrl: 'views/index.html',
+          abstract: true,
+          template: '<ui-view/>',
           controller: 'IndexCtrl as index'
         })
-        .state('document', {
+        .state('index.list', {
+          url: '/',
+          templateUrl: 'views/index.html',
+          controller: 'ListCtrl as list'
+        })
+        .state('index.document', {
           url: '/document/:id',
           templateUrl: 'views/document.html',
           controller: 'DocumentCtrl as document'
