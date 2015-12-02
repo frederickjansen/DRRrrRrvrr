@@ -15,7 +15,8 @@ angular
     'drr.constants',
     'drr.directives',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ngSanitize'
   ])
   .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {

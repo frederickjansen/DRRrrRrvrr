@@ -12,7 +12,7 @@ angular.module('drr.services')
      */
     zombieTranslator.translate = function (text) {
       return $http({
-        url: CONFIG.TRANSLATION_URL + text,
+        url: CONFIG.TRANSLATION_URL + encodeURIComponent(text),
         type: 'GET'
       }).then(function successCallback(data) {
         return data.data.message.replace(/\n/g, "<br>");
