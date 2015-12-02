@@ -5,11 +5,14 @@ describe('Controller: DocumentCtrl', function () {
   // load the controller's module
   beforeEach(module('drr'));
 
-  var DocumentCtrl;
+  var DocumentCtrl, scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller) {
-    DocumentCtrl = $controller('DocumentCtrl', {});
+  beforeEach(inject(function ($rootScope, $controller) {
+    scope = $rootScope.$new();
+    DocumentCtrl = $controller('DocumentCtrl', {
+      $scope: scope
+    });
   }));
 
   it('dummy test', function () {

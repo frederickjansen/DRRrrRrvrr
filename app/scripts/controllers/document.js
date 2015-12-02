@@ -24,7 +24,7 @@ angular.module('drr.controllers')
       }
 
       // If gapi is loaded, we're coming from index page
-      if (gapi && gapi.client) {
+      if (typeof gapi !== 'undefined' && gapi.client) {
         displayFile();
       }
 
