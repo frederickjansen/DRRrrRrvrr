@@ -12,15 +12,6 @@ angular.module('drr.controllers')
     function ($scope, $stateParams, GoogleDrive, ZombieTranslator) {
       var that = this;
 
-      // If gapi is loaded, we're coming from index page
-      if (gapi && gapi.client) {
-        displayFile();
-      }
-
-      $scope.$on('$index:gApiLoaded', function () {
-        displayFile();
-      });
-
       function displayFile() {
         if ($stateParams && $stateParams.id) {
           GoogleDrive.displayFile($stateParams.id).then(function (file) {
@@ -31,5 +22,14 @@ angular.module('drr.controllers')
           });
         }
       }
+
+      // If gapi is loaded, we're coming from index page
+      if (gapi && gapi.client) {
+        displayFile();
+      }
+
+      $scope.$on('$index:gApiLoaded', function () {
+        displayFile();
+      });
 
     }]);

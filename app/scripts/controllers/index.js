@@ -23,5 +23,5 @@ angular.module('drr.controllers')
         return GoogleDrive.checkAuth(immediate);
       }
 
-      console.log('index.js controller')
+      console.log('index.js controller');
     }]);

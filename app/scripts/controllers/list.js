@@ -13,6 +13,15 @@ angular.module('drr.controllers')
       this.label = "Authorize";
       var that = this;
 
+      function listFiles() {
+        GoogleDrive.listFiles().then(
+          function (files) {
+            that.files = files;
+          }, function (error) {
+            console.log('Something went wrong getting files', error);
+          });
+      }
+
       // If gapi is loaded, we're coming from index page
       if (gapi && gapi.client) {
         listFiles();
@@ -30,14 +39,5 @@ angular.module('drr.controllers')
         return GoogleDrive.checkAuth(immediate);
       }
 
-      function listFiles() {
-        GoogleDrive.listFiles().then(
-          function (files) {
-            that.files = files;
-          }, function (error) {
-            console.log('Something went wrong getting files', error);
-          });
-      }
-
-      console.log('list.js controller')
+      console.log('list.js controller');
     }]);
