@@ -14,12 +14,15 @@ angular.module('drr.controllers')
 
       function displayFile() {
         if ($stateParams && $stateParams.id) {
-          GoogleDrive.displayFile($stateParams.id).then(function (file) {
-            ZombieTranslator.translate(file).then(function (translation) {
+          GoogleDrive
+            .displayFile($stateParams.id)
+            .then(function (file) {
+              return ZombieTranslator.translate(file);
+            })
+            .then(function (translation) {
               that.zombieTranslation = translation;
               console.log(translation);
             });
-          });
         }
       }
 
