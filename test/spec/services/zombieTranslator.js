@@ -7,7 +7,16 @@ describe('Service: ZombieTranslator', function () {
   beforeEach(module('drr'));
 
   beforeEach(function () {
+
+    // Mock CONFIG file
+    module(['$provide', function ($provide) {
+      $provide.constant('CONFIG', {
+        'TRANSLATION_URL': 'http://ancient-anchorage-9224.herokuapp.com/zombify?q='
+      });
+    }]);
+
     inject(function ($injector) {
+
       ZombieTranslator = $injector.get('ZombieTranslator');
       // set up the mock http service
       $httpBackend = $injector.get('$httpBackend');
