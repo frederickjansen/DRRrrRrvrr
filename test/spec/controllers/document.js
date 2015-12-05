@@ -66,17 +66,16 @@ describe('Controller: DocumentCtrl', function () {
       $rootScope.$apply();
     }));
 
-    it('should be called', inject(function ($rootScope) {
-
+    it('should be called', function () {
       expect(ZombieTranslator.translate).toHaveBeenCalled();
-    }));
+    });
 
-    it('should be called with file', inject(function ($rootScope) {
+    it('should be called with file', function () {
       expect(ZombieTranslator.translate).toHaveBeenCalledWith('file');
-    }));
+    });
 
-    it('should set zombieTranslation', inject(function ($rootScope) {
+    it('should set zombieTranslation', function () {
       expect(DocumentCtrl.zombieTranslation).toBe('translation');
-    }));
+    });
   });
 });
