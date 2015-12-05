@@ -3,7 +3,7 @@ describe('Directive: oauthButton', function () {
     scope,
     element;
 
-  // Load the myApp module, which contains the directive
+  // Load the drr module, which contains the directive
   beforeEach(module('drr'));
 
   // Store references to $rootScope and $compile

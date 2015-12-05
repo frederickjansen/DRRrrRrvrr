@@ -14,10 +14,10 @@ angular.module('drr.services')
       return $http({
         url: CONFIG.TRANSLATION_URL + encodeURIComponent(text),
         type: 'GET'
-      }).then(function successCallback(data) {
-        return data.data.message.replace(/\n/g, "<br>");
-      }, function errorCallback(error) {
-        return error;
+      }).then(function successCallback(response) {
+        return response.data.message.replace(/\n/g, "<br>");
+      }, function errorCallback(response) {
+        return response.data;
       });
     };
 
