@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Directive: oauthButton', function () {
   var compile,
     scope,

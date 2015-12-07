@@ -53,7 +53,7 @@ describe('Controller: IndexCtrl', function () {
     });
 
     it('should trigger gApiLoaded broadcast', function () {
-      expect(scope.$broadcast).toHaveBeenCalledWith('$index:gApiLoaded')
+      expect(scope.$broadcast).toHaveBeenCalledWith('$index:gApiLoaded');
     });
   });
 });

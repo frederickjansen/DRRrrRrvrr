@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Service: ZombieTranslator', function () {
   var ZombieTranslator,
     $httpBackend,
