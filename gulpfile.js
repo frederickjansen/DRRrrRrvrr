@@ -10,7 +10,9 @@ var inject = require('gulp-inject');
 // *******************************************
 
 gulp.task('buildApp', function(){
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src([
+    '!app/scripts/options.example.js',
+    'app/scripts/**/*.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
     .pipe(gulp.dest('dist'))
@@ -63,7 +65,7 @@ gulp.task('build', ['buildApp', 'buildVendor', 'buildCSS', 'moveHTML', 'injectHT
 gulp.task('karma', function (done) {
   new Server({
     configFile: __dirname + '/test/karma.conf.js',
-    singleRun: true
+    singleRun: false
   }, done).start();
 });
 
