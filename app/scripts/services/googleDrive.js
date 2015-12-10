@@ -15,7 +15,7 @@ angular.module('drr.services')
       gapi.auth.authorize(
         {client_id: CONFIG.CLIENT_ID, scope: CONFIG.SCOPES.join(' '), immediate: immediate}, function (authResult) {
           if (authResult && !authResult.error) {
-            deferred.resolve();
+            deferred.resolve(true);
           } else {
             deferred.reject(authResult.error);
           }
